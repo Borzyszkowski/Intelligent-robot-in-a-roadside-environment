@@ -2,7 +2,6 @@
 
 __author__ = 'Borzyszkowski'
 
-
 import time
 import explorerhat
 

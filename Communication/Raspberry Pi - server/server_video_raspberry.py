@@ -1,4 +1,4 @@
-""" Intelligent robot in a roadside environment - server code for TCP/IP socket connection """
+""" Intelligent robot in a roadside environment - server code for video streaming in TCP/IP socket connection """
 
 __author__ = 'Borzyszkowski'
 
