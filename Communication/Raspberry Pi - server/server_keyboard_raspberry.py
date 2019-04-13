@@ -39,6 +39,7 @@ class KeyboardStreaming(object):
     def steer(prediction):
         if prediction == 'f':
             explorerhat.motor.stop()
+            time.sleep(0.5)  # give 0.5 secs for healthy engines
             explorerhat.motor.forwards()
             explorerhat.light.green.on()
             explorerhat.light.yellow.off()
@@ -48,6 +49,7 @@ class KeyboardStreaming(object):
 
         elif prediction == 'b':
             explorerhat.motor.stop()
+            time.sleep(0.5)  # give 0.5 secs for healthy engines
             explorerhat.motor.backwards()
             explorerhat.light.green.off()
             explorerhat.light.yellow.off()
