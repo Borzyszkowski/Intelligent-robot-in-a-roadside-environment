@@ -7,7 +7,7 @@ Project of an intelligent robot which has started during my research at Karunya 
 
 ### Final version of the robot will be presented in December 2019
 
-Presently, project is supported by Intel AI Products Griup with Movidius Neural Compute Stick.
+Presently, project is supported by Intel AI Products Group with Movidius Neural Compute Stick.
 <p align="center">
   <img width="378" height="480" src="./Others/robot.jpg?raw=true ">
 </p>
