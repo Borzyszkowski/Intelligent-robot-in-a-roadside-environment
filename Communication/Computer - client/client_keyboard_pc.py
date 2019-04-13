@@ -8,7 +8,7 @@ import time
 
 
 def typing():
-    prediction = input("Type F,B,R,L or S: ")
+    prediction = input("Type W, S, A, D or Q: ")
     prediction = str(prediction)
     prediction = prediction.lower()
     print(prediction)

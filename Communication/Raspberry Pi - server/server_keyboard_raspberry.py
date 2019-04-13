@@ -37,9 +37,9 @@ class KeyboardStreaming(object):
 
     @staticmethod
     def steer(prediction):
-        if prediction == 'f':
+        if prediction == 'w':
             explorerhat.motor.stop()
-            time.sleep(0.5)  # give 0.5 secs for healthy engines
+            time.sleep(0.5)  # give 0.5 sec for healthy engines
             explorerhat.motor.forwards()
             explorerhat.light.green.on()
             explorerhat.light.yellow.off()
@@ -47,9 +47,9 @@ class KeyboardStreaming(object):
             explorerhat.light.red.off()
             print("Forward")
 
-        elif prediction == 'b':
+        elif prediction == 's':
             explorerhat.motor.stop()
-            time.sleep(0.5)  # give 0.5 secs for healthy engines
+            time.sleep(0.5)  # give 0.5 sec for healthy engines
             explorerhat.motor.backwards()
             explorerhat.light.green.off()
             explorerhat.light.yellow.off()
@@ -57,19 +57,19 @@ class KeyboardStreaming(object):
             explorerhat.light.red.off()
             print("Backward")
 
-        elif prediction == 'l':
+        elif prediction == 'a':
             explorerhat.motor.stop()
             explorerhat.light.yellow.on()
             explorerhat.light.red.off()
             print("Left")
 
-        elif prediction == 'r':
+        elif prediction == 'd':
             explorerhat.motor.stop()
             explorerhat.light.yellow.on()
             explorerhat.light.red.off()
             print("Right")
 
-        elif prediction == 's':
+        elif prediction == 'q':
             explorerhat.motor.stop()
             explorerhat.light.green.off()
             explorerhat.light.yellow.off()
@@ -84,4 +84,5 @@ class KeyboardStreaming(object):
 if __name__ == '__main__':
     h = '172.20.10.2'
     p = 65531
+    print("Server is waiting for clients.")
     KeyboardStreaming(h, p)
