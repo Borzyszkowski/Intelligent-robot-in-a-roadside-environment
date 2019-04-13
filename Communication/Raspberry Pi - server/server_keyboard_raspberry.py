@@ -4,6 +4,7 @@ __author__ = 'Borzyszkowski'
 
 import socket
 import time
+import explorerhat
 
 
 class KeyboardStreaming(object):
@@ -37,18 +38,41 @@ class KeyboardStreaming(object):
     @staticmethod
     def steer(prediction):
         if prediction == 'f':
+            explorerhat.motor.stop()
+            explorerhat.motor.forwards()
+            explorerhat.light.green.on()
+            explorerhat.light.yellow.off()
+            explorerhat.light.blue.off()
+            explorerhat.light.red.off()
             print("Forward")
 
         elif prediction == 'b':
+            explorerhat.motor.stop()
+            explorerhat.motor.backwards()
+            explorerhat.light.green.off()
+            explorerhat.light.yellow.off()
+            explorerhat.light.blue.on()
+            explorerhat.light.red.off()
             print("Backward")
 
         elif prediction == 'l':
+            explorerhat.motor.stop()
+            explorerhat.light.yellow.on()
+            explorerhat.light.red.off()
             print("Left")
 
         elif prediction == 'r':
+            explorerhat.motor.stop()
+            explorerhat.light.yellow.on()
+            explorerhat.light.red.off()
             print("Right")
 
         elif prediction == 's':
+            explorerhat.motor.stop()
+            explorerhat.light.green.off()
+            explorerhat.light.yellow.off()
+            explorerhat.light.blue.off()
+            explorerhat.light.red.on()
             print("Stop")
 
         else:
