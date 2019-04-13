@@ -1,4 +1,4 @@
-""" Intelligent robot in a roadside environment - raspberry code for camera """
+""" Intelligent robot in a roadside environment - raspberry code for camera tests """
 
 __author__ = 'Borzyszkowski'
 

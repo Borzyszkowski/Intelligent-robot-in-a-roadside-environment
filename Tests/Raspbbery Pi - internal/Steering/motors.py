@@ -1,13 +1,14 @@
-#!/usr/bin/env python
+""" Intelligent robot in a roadside environment - raspberry code for motor tests """
+
+__author__ = 'Borzyszkowski'
+
 
 import time
 import explorerhat
 
 
 print("Press CTRL+C to exit.")
-
 explorerhat.motor.forwards()
-
 touched = [False] * 8
 
 
