@@ -1,3 +1,7 @@
+""" Intelligent robot in a roadside environment - raspberry code for camera """
+
+__author__ = 'Borzyszkowski'
+
 from picamera import PiCamera
 from time import sleep
 
