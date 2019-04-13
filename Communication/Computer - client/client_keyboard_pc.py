@@ -36,5 +36,5 @@ def streaming(host, port):
 
 if __name__ == '__main__':
     h = '172.20.10.2'
-    p = 65532
+    p = 65531
     streaming(h, p)

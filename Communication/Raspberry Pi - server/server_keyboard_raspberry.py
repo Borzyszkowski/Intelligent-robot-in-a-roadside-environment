@@ -18,9 +18,7 @@ class KeyboardStreaming(object):
         self.host_ip = socket.gethostbyname(self.host_name)
         self.streaming()
 
-    def streaming(self, host, port):
-        client_socket = socket(AF_INET, SOCK_STREAM)
-        client_socket.connect((host, port))
+    def streaming(self):
 
         try:
             print("Host: ", self.host_name + ' ' + self.host_ip)
@@ -28,13 +26,13 @@ class KeyboardStreaming(object):
             print("Streaming...")
 
             while True:
-                prediction = client_socket.recv(1)
+                prediction = self.connection.recv(1)
                 prediction = prediction.decode('utf_8')
                 print(prediction)
                 self.steer(prediction)
                 time.sleep(0.01)  # send data to the server every 0.01 sec
         finally:
-            client_socket.close()
+            self.server_socket.close()
 
     @staticmethod
     def steer(prediction):
@@ -59,5 +57,5 @@ class KeyboardStreaming(object):
 
 if __name__ == '__main__':
     h = '172.20.10.2'
-    p = 65532
+    p = 65531
     KeyboardStreaming(h, p)
