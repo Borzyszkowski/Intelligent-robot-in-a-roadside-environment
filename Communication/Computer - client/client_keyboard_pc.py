@@ -21,8 +21,7 @@ def streaming(host, port):
 
     try:
         print("Host IP: ", host)
-        print("Streaming video from server...")
-        print("Press 'q' to exit")
+        print("Streaming keyboard buttons to server...")
 
         while True:
             # prediction='s'
