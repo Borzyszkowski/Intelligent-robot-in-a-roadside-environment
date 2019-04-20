@@ -8,9 +8,15 @@ import time
 
 
 def typing():
-    prediction = input("Type W, S, A, D or Q: ")
-    prediction = str(prediction)
-    prediction = prediction.lower()
+    print("Control the robot. Type:")
+    print("W - forward")
+    print("S - backward")
+    print("A - left forward/backward")
+    print("D - right forward/backward")
+    print("Z - stop")
+    print("Q - left in place")
+    print("E - right in place")
+    prediction = str(input()).lower()
     print(prediction)
     return prediction
 
