@@ -26,17 +26,19 @@ class KeyboardStreaming(object):
             print("Connection from client: ", self.client_address)
             print("Streaming...")
 
+            prev = ''
             while True:
                 prediction = self.connection.recv(1)
                 prediction = prediction.decode('utf_8')
                 print(prediction)
-                self.steer(prediction)
+                self.steer(prediction, prev)
                 time.sleep(0.01)  # send data to the server every 0.01 sec
+                prev = prediction
         finally:
             self.server_socket.close()
 
     @staticmethod
-    def steer(prediction):
+    def steer(prediction, prev):
         if prediction == 'w':
             explorerhat.motor.stop()
             time.sleep(0.5)  # give 0.5 sec for healthy engines
@@ -58,24 +60,60 @@ class KeyboardStreaming(object):
             print("Backward")
 
         elif prediction == 'a':
-            explorerhat.motor.stop()
+            if prev == 'w':
+                explorerhat.motor.one.speed(100)
+                explorerhat.motor.two.speed(40)
+            elif prev == 's':
+                explorerhat.motor.one.speed(-100)
+                explorerhat.motor.two.speed(-40)
+            else:
+                explorerhat.motor.stop()
             explorerhat.light.yellow.on()
             explorerhat.light.red.off()
             print("Left")
 
         elif prediction == 'd':
-            explorerhat.motor.stop()
+            if prev == 'w':
+                explorerhat.motor.one.speed(40)
+                explorerhat.motor.two.speed(100)
+            elif prev == 's':
+                explorerhat.motor.one.speed(-40)
+                explorerhat.motor.two.speed(-100)
+            else:
+                explorerhat.motor.stop()
             explorerhat.light.yellow.on()
             explorerhat.light.red.off()
             print("Right")
 
-        elif prediction == 'q':
+        elif prediction == 'z':
             explorerhat.motor.stop()
             explorerhat.light.green.off()
             explorerhat.light.yellow.off()
             explorerhat.light.blue.off()
             explorerhat.light.red.on()
             print("Stop")
+
+        elif prediction == 'q':
+            explorerhat.motor.stop()
+            time.sleep(0.5)  # give 0.5 sec for healthy engines
+            explorerhat.motor.one.forwards()
+            explorerhat.motor.two.backwards()
+            explorerhat.light.green.off()
+            explorerhat.light.yellow.on()
+            explorerhat.light.blue.off()
+            explorerhat.light.red.off()
+            print("Left - in place")
+
+        elif prediction == 'e':
+            explorerhat.motor.stop()
+            time.sleep(0.5)  # give 0.5 sec for healthy engines
+            explorerhat.motor.one.backwards()
+            explorerhat.motor.two.forwards()
+            explorerhat.light.green.off()
+            explorerhat.light.yellow.on()
+            explorerhat.light.blue.off()
+            explorerhat.light.red.off()
+            print("Right - in place")
 
         else:
             print("Character not recognized")
