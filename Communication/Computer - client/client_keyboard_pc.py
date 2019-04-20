@@ -8,14 +8,6 @@ import time
 
 
 def typing():
-    print("Control the robot. Type:")
-    print("W - forward")
-    print("S - backward")
-    print("A - left forward/backward")
-    print("D - right forward/backward")
-    print("Z - stop")
-    print("Q - left in place")
-    print("E - right in place")
     prediction = str(input()).lower()
     print(prediction)
     return prediction
@@ -29,6 +21,14 @@ def streaming(host, port):
         print("Host IP: ", host)
         print("Streaming keyboard buttons to server...")
 
+        print("Control the robot. Type:")
+        print("W - forward")
+        print("S - backward")
+        print("A - left forward/backward")
+        print("D - right forward/backward")
+        print("Z - stop")
+        print("Q - left in place")
+        print("E - right in place")
         while True:
             # prediction='s'
             prediction = typing()
