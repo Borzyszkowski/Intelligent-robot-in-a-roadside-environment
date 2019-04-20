@@ -132,41 +132,63 @@ def steer(prediction, prev):
         print("Character not recognized")
 
 
+check = ''
 def button_control(channel, event):
-
+    global check
+    
     if channel == 1:
+        pre = 'w'
         print("1 - forward")
-        steer('w', '')
+        steer(pre, check)
 
     elif channel == 2:
+        pre = 's'
         print("2 - backward")
-        steer('s', '')
+        steer(pre, check)
 
     elif channel == 3:
+        pre = 'a'
         print("3 - left forward/backward")
-        steer('a', '')
+        steer(pre, check)
 
     elif channel == 4:
+        pre = 'd'
         print("4 - right forward/backward")
-        steer('d', '')
+        steer(pre, check)
 
     elif channel == 5:
+        pre = 'z'
         print("5 - stop")
-        steer('z', '')
+        steer(pre, check)
 
     elif channel == 6:
+        pre = 'q'
         print("6 - left in place")
-        steer('q', '')
+        steer(pre, check)
 
     elif channel == 7:
+        pre = 'e'
         print("7 - right in place")
-        steer('e', '')
+        steer(pre, check)
 
-    elif channel == 8:
+    else:
+        pre = 'z'
         print("8 - return")
-        steer('z', '')
+        steer(pre, check)
         explorerhat.motor.stop()
         return
+    
+    print(pre)
+    print(check)    
+        
+    if (check == 'w' or check == 's') and pre != 'w' and pre != 's':
+        check += pre
+    elif (check == 'wa' or check == 'wd') and pre != 'w' and pre != 's':
+        check  = 'w' + pre
+    elif (check  == 'sa' or check == 'sd') and pre != 's' and pre != 'w':
+        check  = 's' + pre
+    else:
+        check  = pre
 
 
 def choose_button(channel, event):
