@@ -26,6 +26,11 @@ class KeyboardStreaming(object):
             print("Connection from client: ", self.client_address)
             print("Streaming...")
 
+            explorerhat.light.green.on()
+            explorerhat.light.yellow.on()
+            explorerhat.light.blue.on()
+            explorerhat.light.red.on()
+
             prev = ''
             while True:
                 prediction = self.connection.recv(1)
@@ -69,10 +74,10 @@ class KeyboardStreaming(object):
         elif prediction == 'd':
             if prev == 'w' or prev == 'wa' or prev == 'wd':
                 explorerhat.motor.one.speed(100)
-                explorerhat.motor.two.speed(40)
+                explorerhat.motor.two.speed(20)
             elif prev == 's' or prev == 'sa' or prev == 'sd':
                 explorerhat.motor.one.speed(-100)
-                explorerhat.motor.two.speed(-40)
+                explorerhat.motor.two.speed(-20)
             else:
                 explorerhat.motor.stop()
             explorerhat.light.yellow.on()
@@ -81,10 +86,10 @@ class KeyboardStreaming(object):
 
         elif prediction == 'a':
             if prev == 'w' or prev == 'wd' or prev == 'wa':
-                explorerhat.motor.one.speed(40)
+                explorerhat.motor.one.speed(20)
                 explorerhat.motor.two.speed(100)
             elif prev == 's' or prev == 'sd' or prev == 'sa':
-                explorerhat.motor.one.speed(-40)
+                explorerhat.motor.one.speed(-20)
                 explorerhat.motor.two.speed(-100)
             else:
                 explorerhat.motor.stop()
