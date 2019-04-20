@@ -142,8 +142,30 @@ def button_control(channel, event):
         print("2 - backward")
         steer('s', '')
 
+    elif channel == 3:
+        print("3 - left forward/backward")
+        steer('a', '')
+
+    elif channel == 4:
+        print("4 - right forward/backward")
+        steer('d', '')
+
+    elif channel == 5:
+        print("5 - stop")
+        steer('z', '')
+
+    elif channel == 6:
+        print("6 - left in place")
+        steer('q', '')
+
+    elif channel == 7:
+        print("7 - right in place")
+        steer('e', '')
+
     elif channel == 8:
         print("8 - return")
+        steer('z', '')
+        explorerhat.motor.stop()
         return
 
 
@@ -158,7 +180,7 @@ def choose_button(channel, event):
         print("6 - left in place")
         print("7 - right in place")
         print("8 - return")
-        explorerhat.touch.pressed(button_control())
+        explorerhat.touch.pressed(button_control)
         return
     elif channel == 2:
         print("2: Computer control")
@@ -178,10 +200,9 @@ def server_launch():
 
 
 if __name__ == '__main__':
-    while True:
-        print("Press the button:")
-        print("1: Button control")
-        print("2: Computer control")
-        print("3: Autonomous drive")
-        explorerhat.light.yellow.on()
-        explorerhat.touch.pressed(choose_button)
+    print("Press the button:")
+    print("1: Button control")
+    print("2: Computer control")
+    print("3: Autonomous drive")
+    explorerhat.light.yellow.on()
+    explorerhat.touch.pressed(choose_button)
