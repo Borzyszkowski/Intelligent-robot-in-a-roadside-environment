@@ -37,11 +37,11 @@ class KeyboardStreaming(object):
                 print(prev)
                 self.steer(prediction, prev)
                 time.sleep(0.01)  # send data to the server every 0.01 sec
-                if prev == 'w' or prev == 's':
+                if (prev == 'w' or prev == 's') and prediction != 'w' and prediction != 's':
                     prev += prediction
-                if prev == 'wa' or prev == 'wd':
+                elif (prev == 'wa' or prev == 'wd') and prediction != 'w' and prediction != 's':
                     prev = 'w' + prediction
-                if prev == 'sa' or prev == 'sd':
+                elif (prev == 'sa' or prev == 'sd') and prediction != 's' and prediction != 'w':
                     prev = 's' + prediction
                 else:
                     prev = prediction
