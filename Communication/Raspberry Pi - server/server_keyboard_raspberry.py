@@ -34,6 +34,7 @@ class KeyboardStreaming(object):
                 prediction = self.connection.recv(1)
                 prediction = prediction.decode('utf_8')
                 print(prediction)
+                print(prev)
                 self.steer(prediction, prev)
                 time.sleep(0.01)  # send data to the server every 0.01 sec
                 if prev == 'w' or prev == 's':
