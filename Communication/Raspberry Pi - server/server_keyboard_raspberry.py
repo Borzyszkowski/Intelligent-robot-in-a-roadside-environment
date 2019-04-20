@@ -52,8 +52,9 @@ class KeyboardStreaming(object):
     @staticmethod
     def steer(prediction, prev):
         if prediction == 'w':
-            explorerhat.motor.stop()
-            time.sleep(0.5)  # give 0.5 sec for healthy engines
+            if prev != 'w' or prev != 'wd' or prev != 'wa':
+                explorerhat.motor.stop()
+                time.sleep(0.5)  # give 0.5 sec for healthy engines
             explorerhat.motor.forwards()
             explorerhat.light.green.on()
             explorerhat.light.yellow.off()
@@ -62,8 +63,9 @@ class KeyboardStreaming(object):
             print("Forward")
 
         elif prediction == 's':
-            explorerhat.motor.stop()
-            time.sleep(0.5)  # give 0.5 sec for healthy engines
+            if prev != 's' or prev != 'sd' or prev != 'sa':
+                explorerhat.motor.stop()
+                time.sleep(0.5)  # give 0.5 sec for healthy engines
             explorerhat.motor.backwards()
             explorerhat.light.green.off()
             explorerhat.light.yellow.off()
