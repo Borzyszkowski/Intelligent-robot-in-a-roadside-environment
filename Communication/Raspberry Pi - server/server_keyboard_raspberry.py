@@ -132,10 +132,29 @@ class KeyboardStreaming(object):
             print("Character not recognized")
 
 
-if __name__ == '__main__':
+def choose_button(channel, event):
+    if channel == 2:
+        server_launch()
+    elif channel == 1:
+        print("2: Computer control")
+    elif channel == 3:
+        print("3: Autonomous drive")
+
+
+def server_launch():
     h = '172.20.10.2'
     p = 65531
     print("Server is waiting for clients.")
     explorerhat.light.green.on()
     explorerhat.light.red.on()
+    explorerhat.light.yellow.off()
     KeyboardStreaming(h, p)
+
+
+if __name__ == '__main__':
+    print("Press the button:")
+    print("1: Button control")
+    print("2: Computer control")
+    print("3: Autonomous drive")
+    explorerhat.light.yellow.on()
+    explorerhat.touch.pressed(choose_button)
