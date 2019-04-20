@@ -26,10 +26,8 @@ class KeyboardStreaming(object):
             print("Connection from client: ", self.client_address)
             print("Streaming...")
 
-            explorerhat.light.green.on()
             explorerhat.light.yellow.on()
             explorerhat.light.blue.on()
-            explorerhat.light.red.on()
 
             prev = ''
             while True:
@@ -137,4 +135,6 @@ if __name__ == '__main__':
     h = '172.20.10.2'
     p = 65531
     print("Server is waiting for clients.")
+    explorerhat.light.green.on()
+    explorerhat.light.red.on()
     KeyboardStreaming(h, p)
