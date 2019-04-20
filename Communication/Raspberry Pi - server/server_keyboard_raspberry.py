@@ -35,9 +35,9 @@ class KeyboardStreaming(object):
                 time.sleep(0.01)  # send data to the server every 0.01 sec
                 if prev == 'w' or prev == 's':
                     prev += prediction
-                if prev == 'wa' or 'wd':
+                if prev == 'wa' or prev == 'wd':
                     prev = 'w' + prediction
-                if prev == 'sa' or 'sd':
+                if prev == 'sa' or prev == 'sd':
                     prev = 's' + prediction
                 else:
                     prev = prediction
