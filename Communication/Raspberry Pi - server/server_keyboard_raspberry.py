@@ -35,7 +35,7 @@ class KeyboardStreaming(object):
                 prediction = prediction.decode('utf_8')
                 print(prediction)
                 print(prev)
-                self.steer(prediction, prev)
+                steer(prediction, prev)
                 time.sleep(0.01)  # send data to the server every 0.01 sec
                 if (prev == 'w' or prev == 's') and prediction != 'w' and prediction != 's':
                     prev += prediction
@@ -48,95 +48,121 @@ class KeyboardStreaming(object):
         finally:
             self.server_socket.close()
 
-    @staticmethod
-    def steer(prediction, prev):
-        if prediction == 'w':
-            if prev != 'w' and prev != 'wd' and prev != 'wa':
-                explorerhat.motor.stop()
-                time.sleep(0.5)  # give 0.5 sec for healthy engines
-            explorerhat.motor.forwards()
-            explorerhat.light.green.on()
-            explorerhat.light.yellow.off()
-            explorerhat.light.blue.off()
-            explorerhat.light.red.off()
-            print("Forward")
 
-        elif prediction == 's':
-            if prev != 's' and prev != 'sd' and prev != 'sa':
-                explorerhat.motor.stop()
-                time.sleep(0.5)  # give 0.5 sec for healthy engines
-            explorerhat.motor.backwards()
-            explorerhat.light.green.off()
-            explorerhat.light.yellow.off()
-            explorerhat.light.blue.on()
-            explorerhat.light.red.off()
-            print("Backward")
-
-        elif prediction == 'd':
-            if prev == 'w' or prev == 'wa' or prev == 'wd':
-                explorerhat.motor.one.speed(100)
-                explorerhat.motor.two.speed(20)
-            elif prev == 's' or prev == 'sa' or prev == 'sd':
-                explorerhat.motor.one.speed(-100)
-                explorerhat.motor.two.speed(-20)
-            else:
-                explorerhat.motor.stop()
-            explorerhat.light.yellow.on()
-            explorerhat.light.red.off()
-            print("Left")
-
-        elif prediction == 'a':
-            if prev == 'w' or prev == 'wd' or prev == 'wa':
-                explorerhat.motor.one.speed(20)
-                explorerhat.motor.two.speed(100)
-            elif prev == 's' or prev == 'sd' or prev == 'sa':
-                explorerhat.motor.one.speed(-20)
-                explorerhat.motor.two.speed(-100)
-            else:
-                explorerhat.motor.stop()
-            explorerhat.light.yellow.on()
-            explorerhat.light.red.off()
-            print("Right")
-
-        elif prediction == 'z':
-            explorerhat.motor.stop()
-            explorerhat.light.green.off()
-            explorerhat.light.yellow.off()
-            explorerhat.light.blue.off()
-            explorerhat.light.red.on()
-            print("Stop")
-
-        elif prediction == 'e':
+def steer(prediction, prev):
+    if prediction == 'w':
+        if prev != 'w' and prev != 'wd' and prev != 'wa':
             explorerhat.motor.stop()
             time.sleep(0.5)  # give 0.5 sec for healthy engines
-            explorerhat.motor.one.forwards()
-            explorerhat.motor.two.backwards()
-            explorerhat.light.green.off()
-            explorerhat.light.yellow.on()
-            explorerhat.light.blue.off()
-            explorerhat.light.red.off()
-            print("Left - in place")
+        explorerhat.motor.forwards()
+        explorerhat.light.green.on()
+        explorerhat.light.yellow.off()
+        explorerhat.light.blue.off()
+        explorerhat.light.red.off()
+        print("Forward")
 
-        elif prediction == 'q':
+    elif prediction == 's':
+        if prev != 's' and prev != 'sd' and prev != 'sa':
             explorerhat.motor.stop()
             time.sleep(0.5)  # give 0.5 sec for healthy engines
-            explorerhat.motor.one.backwards()
-            explorerhat.motor.two.forwards()
-            explorerhat.light.green.off()
-            explorerhat.light.yellow.on()
-            explorerhat.light.blue.off()
-            explorerhat.light.red.off()
-            print("Right - in place")
+        explorerhat.motor.backwards()
+        explorerhat.light.green.off()
+        explorerhat.light.yellow.off()
+        explorerhat.light.blue.on()
+        explorerhat.light.red.off()
+        print("Backward")
 
+    elif prediction == 'd':
+        if prev == 'w' or prev == 'wa' or prev == 'wd':
+            explorerhat.motor.one.speed(100)
+            explorerhat.motor.two.speed(20)
+        elif prev == 's' or prev == 'sa' or prev == 'sd':
+            explorerhat.motor.one.speed(-100)
+            explorerhat.motor.two.speed(-20)
         else:
-            print("Character not recognized")
+            explorerhat.motor.stop()
+        explorerhat.light.yellow.on()
+        explorerhat.light.red.off()
+        print("Left")
+
+    elif prediction == 'a':
+        if prev == 'w' or prev == 'wd' or prev == 'wa':
+            explorerhat.motor.one.speed(20)
+            explorerhat.motor.two.speed(100)
+        elif prev == 's' or prev == 'sd' or prev == 'sa':
+            explorerhat.motor.one.speed(-20)
+            explorerhat.motor.two.speed(-100)
+        else:
+            explorerhat.motor.stop()
+        explorerhat.light.yellow.on()
+        explorerhat.light.red.off()
+        print("Right")
+
+    elif prediction == 'z':
+        explorerhat.motor.stop()
+        explorerhat.light.green.off()
+        explorerhat.light.yellow.off()
+        explorerhat.light.blue.off()
+        explorerhat.light.red.on()
+        print("Stop")
+
+    elif prediction == 'e':
+        explorerhat.motor.stop()
+        time.sleep(0.5)  # give 0.5 sec for healthy engines
+        explorerhat.motor.one.forwards()
+        explorerhat.motor.two.backwards()
+        explorerhat.light.green.off()
+        explorerhat.light.yellow.on()
+        explorerhat.light.blue.off()
+        explorerhat.light.red.off()
+        print("Left - in place")
+
+    elif prediction == 'q':
+        explorerhat.motor.stop()
+        time.sleep(0.5)  # give 0.5 sec for healthy engines
+        explorerhat.motor.one.backwards()
+        explorerhat.motor.two.forwards()
+        explorerhat.light.green.off()
+        explorerhat.light.yellow.on()
+        explorerhat.light.blue.off()
+        explorerhat.light.red.off()
+        print("Right - in place")
+
+    else:
+        print("Character not recognized")
+
+
+def button_control(channel, event):
+
+    if channel == 1:
+        print("1 - forward")
+        steer('w', '')
+
+    elif channel == 2:
+        print("2 - backward")
+        steer('s', '')
+
+    elif channel == 8:
+        print("8 - return")
+        return
 
 
 def choose_button(channel, event):
-    if channel == 2:
-        server_launch()
-    elif channel == 1:
+    if channel == 1:
+        print("Control the robot with buttons. Press:")
+        print("1 - forward")
+        print("2 - backward")
+        print("3 - left forward/backward")
+        print("4 - right forward/backward")
+        print("5 - stop")
+        print("6 - left in place")
+        print("7 - right in place")
+        print("8 - return")
+        explorerhat.touch.pressed(button_control())
+        return
+    elif channel == 2:
         print("2: Computer control")
+        server_launch()
     elif channel == 3:
         print("3: Autonomous drive")
 
@@ -152,9 +178,10 @@ def server_launch():
 
 
 if __name__ == '__main__':
-    print("Press the button:")
-    print("1: Button control")
-    print("2: Computer control")
-    print("3: Autonomous drive")
-    explorerhat.light.yellow.on()
-    explorerhat.touch.pressed(choose_button)
+    while True:
+        print("Press the button:")
+        print("1: Button control")
+        print("2: Computer control")
+        print("3: Autonomous drive")
+        explorerhat.light.yellow.on()
+        explorerhat.touch.pressed(choose_button)
