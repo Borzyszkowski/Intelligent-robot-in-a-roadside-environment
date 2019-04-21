@@ -177,7 +177,7 @@ def button_control(channel, event):
         print("8 - return")
         steer(prediction, prev)
         explorerhat.motor.stop()
-        return
+        menu()
 
     print(prediction)
     print(prev)
@@ -222,10 +222,14 @@ def server_launch():
     KeyboardStreaming(h, p)
 
 
-if __name__ == '__main__':
+def menu():
     print("Press the button:")
     print("1: Button control")
     print("2: Computer control")
     print("3: Autonomous drive")
     explorerhat.light.yellow.on()
     explorerhat.touch.pressed(choose_button)
+
+
+if __name__ == '__main__':
+    menu()
