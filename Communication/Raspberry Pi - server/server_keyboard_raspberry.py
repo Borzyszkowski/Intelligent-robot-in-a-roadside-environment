@@ -6,6 +6,8 @@ import socket
 import time
 import explorerhat
 
+prev = ''
+
 
 class KeyboardStreaming(object):
     def __init__(self, host, port):
@@ -29,7 +31,7 @@ class KeyboardStreaming(object):
             explorerhat.light.yellow.on()
             explorerhat.light.blue.on()
 
-            prev = ''
+            global prev
             while True:
                 prediction = self.connection.recv(1)
                 prediction = prediction.decode('utf_8')
@@ -132,63 +134,62 @@ def steer(prediction, prev):
         print("Character not recognized")
 
 
-check = ''
 def button_control(channel, event):
-    global check
-    
+    global prev
+
     if channel == 1:
-        pre = 'w'
+        prediction = 'w'
         print("1 - forward")
-        steer(pre, check)
+        steer(prediction, prev)
 
     elif channel == 2:
-        pre = 's'
+        prediction = 's'
         print("2 - backward")
-        steer(pre, check)
+        steer(prediction, prev)
 
     elif channel == 3:
-        pre = 'a'
+        prediction = 'a'
         print("3 - left forward/backward")
-        steer(pre, check)
+        steer(prediction, prev)
 
     elif channel == 4:
-        pre = 'd'
+        prediction = 'd'
         print("4 - right forward/backward")
-        steer(pre, check)
+        steer(prediction, prev)
 
     elif channel == 5:
-        pre = 'z'
+        prediction = 'z'
         print("5 - stop")
-        steer(pre, check)
+        steer(prediction, prev)
 
     elif channel == 6:
-        pre = 'q'
+        prediction = 'q'
         print("6 - left in place")
-        steer(pre, check)
+        steer(prediction, prev)
 
     elif channel == 7:
-        pre = 'e'
+        prediction = 'e'
         print("7 - right in place")
-        steer(pre, check)
+        steer(prediction, prev)
 
     else:
-        pre = 'z'
+        prediction = 'z'
         print("8 - return")
-        steer(pre, check)
+        steer(prediction, prev)
         explorerhat.motor.stop()
         return
-    
-    print(pre)
-    print(check)    
-        
-    if (check == 'w' or check == 's') and pre != 'w' and pre != 's':
-        check += pre
-    elif (check == 'wa' or check == 'wd') and pre != 'w' and pre != 's':
-        check  = 'w' + pre
-    elif (check  == 'sa' or check == 'sd') and pre != 's' and pre != 'w':
-        check  = 's' + pre
+
+    print(prediction)
+    print(prev)
+
+    if (prev == 'w' or prev == 's') and prediction != 'w' and prediction != 's':
+        prev += prediction
+    elif (prev == 'wa' or prev == 'wd') and prediction != 'w' and prediction != 's':
+        prev = 'w' + prediction
+    elif (prev == 'sa' or prev == 'sd') and prediction != 's' and prediction != 'w':
+        prev = 's' + prediction
     else:
-        check  = pre
+        prev = prediction
 
 
 def choose_button(channel, event):
