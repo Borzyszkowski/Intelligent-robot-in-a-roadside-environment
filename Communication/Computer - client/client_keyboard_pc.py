@@ -2,13 +2,15 @@
 
 __author__ = 'Borzyszkowski'
 
-import serial
+import msvcrt
 from socket import *
 import time
 
 
 def typing():
-    prediction = str(input()).lower()
+    # prediction = str(input()).lower()
+    prediction = str(msvcrt.getch()).lower()
+    prediction = prediction[-2]
     print(prediction)
     return prediction
 
@@ -35,8 +37,7 @@ def streaming(host, port):
             client_socket.sendall(prediction.encode('utf-8'))
             time.sleep(0.01)
     finally:
-        self.connection.close()
-        self.server_socket.close()
+        return
 
 
 if __name__ == '__main__':
