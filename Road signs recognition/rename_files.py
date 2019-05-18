@@ -1,13 +1,10 @@
 import glob
 from PIL import Image
-import numpy as np
 
-folder = 'speed'
+folder = 'work'
 images = []
 for f in glob.iglob("./images/{}/*.JPG".format(folder)):
-    images.append(np.asarray(Image.open(f)))
-
-images = np.array(images)
+    images.append(Image.open(f))
 
 for i in range(len(images)):
-    images[i].save('{}_{}.jpg'.format(folder, i+1))
+    images[i].save('./images/{}_{}.jpg'.format(folder, i+1))
