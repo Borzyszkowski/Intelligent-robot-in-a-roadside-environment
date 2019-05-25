@@ -1,0 +1,26 @@
+<annotation>
+	<folder>speed</folder>
+	<filename>speed_54.jpg</filename>
+	<path>/home/borzyszkowski/Desktop/Intelligent-robot-in-a-roadside-environment/Road signs recognition/images/speed/speed_54.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3264</width>
+		<height>2448</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>speed</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2309</xmin>
+			<ymin>238</ymin>
+			<xmax>2907</xmax>
+			<ymax>805</ymax>
+		</bndbox>
+	</object>
+</annotation>

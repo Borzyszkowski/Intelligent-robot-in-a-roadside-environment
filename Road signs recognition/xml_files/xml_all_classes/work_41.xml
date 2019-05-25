@@ -1,0 +1,26 @@
+<annotation>
+	<folder>work</folder>
+	<filename>work_41.jpg</filename>
+	<path>/home/borzyszkowski/Desktop/Intelligent-robot-in-a-roadside-environment/Road signs recognition/images/work/work_41.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3264</width>
+		<height>2448</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>work</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1964</xmin>
+			<ymin>216</ymin>
+			<xmax>2726</xmax>
+			<ymax>916</ymax>
+		</bndbox>
+	</object>
+</annotation>
