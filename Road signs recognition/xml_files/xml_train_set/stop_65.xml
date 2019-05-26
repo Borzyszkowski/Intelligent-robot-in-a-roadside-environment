@@ -1,0 +1,26 @@
+<annotation>
+	<folder>stop</folder>
+	<filename>stop_65.jpg</filename>
+	<path>/home/borzyszkowski/Desktop/Intelligent-robot-in-a-roadside-environment/Road signs recognition/images/stop/stop_65.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3264</width>
+		<height>2448</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>stop</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2449</xmin>
+			<ymin>333</ymin>
+			<xmax>2799</xmax>
+			<ymax>652</ymax>
+		</bndbox>
+	</object>
+</annotation>
