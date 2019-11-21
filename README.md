@@ -5,7 +5,7 @@
 #### by Bartłomiej Borzyszkowski, Gdansk University of Technology (ETI)
 
 
-Project of an intelligent robot which has started during the research at Karunya Institute of Technology and Sciences in India. Currently, the work is being developed within the Gradient Science Club in Poland, as a part of my Bachelor thesis.
+Project of an intelligent robot which has started during research at Karunya Institute of Technology and Sciences in India. Currently, the work is being developed within the Gradient Science Club in Poland, as a part of my Bachelor thesis.
 
 ### Final version of the robot and repository will be presented in December 2019
 
