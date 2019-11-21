@@ -2,7 +2,7 @@
 
 
 ## Intelligent robot in a roadside environment
-#### by Bartłomiej Borzyszkowski, Gdansk University of Technology (ETI), Poland
+#### by Bartłomiej Borzyszkowski, Gdansk University of Technology (ETI)
 
 
 Project of an intelligent robot which has started during my research at Karunya Institute of Technology and Sciences in India. Currently, the work is being developed within Gradient science club in Poland, as a part of my Bachelor thesis.
