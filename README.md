@@ -16,3 +16,27 @@ In this project we design a model of an intelligent robot based on Raspberry Pi 
 <br>
 
 <p align="center"><img src="https://imgur.com/w9fNPhL.jpg" width="600" align="middle"></p>
+
+
+### How to run?
+>~~~~
+>git clone https://github.com/Borzyszkowski/Intelligent-robot-in-a-roadside-environment.git
+>~~~~
+
+##### Raspberry Pi (robot):
+>~~~~
+>python server_keyboard_raspberry.py
+>python server_video_raspberry.py
+>~~~~
+
+##### Computer (user):
+>~~~~
+>python client_keyboard_pc.py
+>python client_video_pc.py
+>~~~~
+
+
+### Useful links
+
+* Learn more about [Intel Movidius Neural Compute Stick](https://software.intel.com/en-us/movidius-ncs).
+* [OpenVINO toolkit overview](https://software.intel.com/en-us/openvino-toolkit) - Development of applications and solutions that emulate human vision
