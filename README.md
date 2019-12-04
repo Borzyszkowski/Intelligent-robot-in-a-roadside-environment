@@ -11,4 +11,4 @@ Project of an intelligent robot which has started during the research at Karunya
 
 Presently, the project is supported by Intel AI Products Group with Movidius Neural Compute Stick.
 
-<p align="center"><img src="https://imgur.com/9N32IGw.jpg" width="600" align="middle"></p>
+<p align="center"><img src="https://imgur.com/w9fNPhL.jpg" width="600" align="middle"></p>
