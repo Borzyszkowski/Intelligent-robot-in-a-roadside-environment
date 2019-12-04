@@ -41,3 +41,8 @@ In this project we design a model of an intelligent robot based on Raspberry Pi 
 
 * Learn more about [Intel Movidius Neural Compute Stick](https://software.intel.com/en-us/movidius-ncs).
 * [OpenVINO toolkit overview](https://software.intel.com/en-us/openvino-toolkit) - Development of applications and solutions that emulate human vision
+* [Gradient Science Club](http://gradient.eti.pg.gda.pl/en/meetings/) - join us and learn more!
+
+### Contact
+* Email: GradientPG@gmail.com
+* Facebook: [GradientPG](https://www.facebook.com/GradientPG/)
