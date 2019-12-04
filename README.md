@@ -17,6 +17,7 @@ In this project we design a model of an intelligent robot based on Raspberry Pi 
 
 <p align="center"><img src="https://imgur.com/w9fNPhL.jpg" width="600" align="middle"></p>
 
+<br>
 
 ### How to run?
 >~~~~
