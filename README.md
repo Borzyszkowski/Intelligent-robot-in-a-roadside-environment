@@ -10,6 +10,5 @@ Project of an intelligent robot which has started during the research at Karunya
 ### Final version of the robot and repository will be presented in December 2019
 
 Presently, the project is supported by Intel AI Products Group with Movidius Neural Compute Stick.
-<p align="center">
-  <img width="378" height="480" src="./Others/robot.jpg?raw=true ">
-</p>
+
+<p align="center"><img src="https://imgur.com/9N32IGw.jpg" width="600" align="middle"></p>
